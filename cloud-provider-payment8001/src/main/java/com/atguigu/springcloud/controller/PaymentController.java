@@ -5,6 +5,7 @@ import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -14,6 +15,9 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment){
@@ -31,7 +35,7 @@ public class PaymentController {
         Payment payment = paymentService.getPaymentById(id);
         System.out.println("*****查询结果："+payment);
         if(payment!=null){
-            return  new CommonResult(200,"查询成功",payment);
+            return  new CommonResult(200,"查询成功"+serverPort,payment);
         }else{
             return new CommonResult(404,"查询失败",null);
         }
