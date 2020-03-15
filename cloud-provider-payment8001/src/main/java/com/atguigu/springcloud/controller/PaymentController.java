@@ -12,6 +12,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @RestController
@@ -63,4 +64,25 @@ public class PaymentController {
         }
         return this.discoveryClient;
     }
+
+    @GetMapping("/payment/lb")
+    public String getPaymetLB(){
+        return serverPort;
+    }
+
+    /**
+     * 测试feign的调用时间超时
+     * @return
+     * @throws InterruptedException
+     */
+    @GetMapping("/payment/feignTimeout")
+    public String paymentFeigTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
+
 }
