@@ -9,3 +9,6 @@ eureka:
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/     单机版
       defaultZone: http://eureka7002.com:7002/eureka/
+  server:
+    enable-self-preservation: false    #自我保护模式的禁用
+    eviction-interval-timer-in-ms: 2000   #自我保护模式的开启时间(多长时间出现红字)
