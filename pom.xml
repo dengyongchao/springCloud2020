@@ -23,6 +23,10 @@
         <module>cloud-consumer-feign-hystrix-order</module>
         <module>cloud-consumer-hystrix-dashboard</module>
         <module>cloud-gateway-getway9527</module>
+        <module>cloud-config-center</module>
+        <module>cloud-config-client-3355</module>
+        <module>cloud-config-client-3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
     </modules>
     <dependencies>
         <dependency>
