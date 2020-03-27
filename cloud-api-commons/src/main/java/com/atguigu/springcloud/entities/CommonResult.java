@@ -20,4 +20,7 @@ public class CommonResult<T> {
         this.data = data;
     }
 
+    public T getData() {
+        return data;
+    }
 }
